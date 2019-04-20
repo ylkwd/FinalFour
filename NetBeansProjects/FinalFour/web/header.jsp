@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Road to Championship 2019</title>
 <!--        <link rel="stylesheet" href="CSS/stylecss.css" type="text/css"/>-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -32,24 +32,25 @@
         <%
                     if(session.getAttribute("uname")!=null){%>
                     
-                    <a  class="w3-bar-item"style="color:black"> Hello, 
+                    <a  class="w3-bar-item"style="color:black"> Hello, <i class="fa fa-user"></i>
                         <%
                         out.println(session.getAttribute("uname"));
                         %>
                         </h2>
                       
-                        <a class=" w3-bar-item w3-button" class="w3-button" style="background-color: #f68026;color: white" href="logout.jsp">Logout</a>
+                        <a class=" w3-bar-item w3-button" style="background-color: #f68026;color: white" href="logout.jsp">Logout</a>
                     <%}
                     else{%>
                     
                     <a class="w3-bar-item w3-button" style="background-color: #f68026;color: white"href="signup.jsp">Sign up</a> &nbsp;
                     <a class="w3-bar-item w3-button" style="background-color: #f68026;color: white"href="login.jsp">Login</a>
-                    
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+                     <%}%>
+
+<!--      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
       <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
       <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>-->
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -77,7 +78,7 @@
             <h1 class="w3-xxxlarge" style="color: white">Road to Championship 2019</h1>
                 
 
-                    <%}%>
+                   
 
 
         </div>
