@@ -29,8 +29,24 @@
     <a href="#home" class="w3-bar-item w3-button w3-wide w3-left"><img style="max-width: 50px;" src="ncaa.png"></img></a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
+        <%
+                    if(session.getAttribute("uname")!=null){%>
+                    
+                    <a  class="w3-bar-item"style="color:black"> Hello, 
+                        <%
+                        out.println(session.getAttribute("uname"));
+                        %>
+                        </h2>
+                      
+                        <a class=" w3-bar-item w3-button" class="w3-button" style="background-color: #f68026;color: white" href="logout.jsp">Logout</a>
+                    <%}
+                    else{%>
+                    
+                    <a class="w3-bar-item w3-button" style="background-color: #f68026;color: white"href="signup.jsp">Sign up</a> &nbsp;
+                    <a class="w3-bar-item w3-button" style="background-color: #f68026;color: white"href="login.jsp">Login</a>
+                    
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
       <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
       <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
@@ -59,23 +75,7 @@
         <div class="w3-container w3-center w3-padding-32" style="background-color: #03244d">
             
             <h1 class="w3-xxxlarge" style="color: white">Road to Championship 2019</h1>
-                <%
-                    if(session.getAttribute("uname")!=null){%>
-                    
-                    <h2 style="color:white"> Hello, 
-                        <%
-                        out.println(session.getAttribute("uname"));
-                        %>
-                        </h2>
-                        <div class="login_form">
-                        <a class="login_form w3-button" class="w3-button" style="background-color: #f68026;color: white" href="logout.jsp">Logout</a>
-                    </div>
-                    <%}
-                    else{%>
-                    <div class="login_form">
-                    <a class="w3-button" style="background-color: #f68026;color: white"href="signup.jsp">Sign up</a> &nbsp;
-                    <a class="w3-button" style="background-color: #f68026;color: white"href="login.jsp">Login</a>
-                    </div>
+                
 
                     <%}%>
 
