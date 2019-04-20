@@ -29,7 +29,7 @@
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
 </header>
-        <div class="w3-container w3-center w3-card-4 w3-light-grey w3-text-blue w3-margin">
+        <div class="w3-container w3-center w3-card-4 w3-light-grey w3-text-blue w3-margin" style="padding:128px 16px">
         <h2 style="color: black">Search book</h2>
         <form name ="selectbook" action="selectbook" method="GET" >
             <select name="topics">
