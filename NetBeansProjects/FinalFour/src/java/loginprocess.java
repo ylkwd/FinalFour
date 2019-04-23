@@ -31,7 +31,7 @@ public class loginprocess extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/library_catalog","root","lyx19930914");
+            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalFour","root","lyx19930914");
             st=conn.createStatement();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(registerprocess.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,7 +47,7 @@ public class loginprocess extends HttpServlet {
             rd.forward(request, response);
         }
 //        cant find user name in DB
-        String query = "SELECT username FROM users WHERE username = '"+username+ "' and password = '"+password+"'";
+        String query = "SELECT uname FROM users WHERE uname = '"+username+ "' and password = '"+password+"'";
         try {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {

@@ -36,52 +36,45 @@ public class selectbook extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/library_catalog","root","lyx19930914");
+            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalFour","root","lyx19930914");
             st=conn.createStatement();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(registerprocess.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(registerprocess.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int selectedItem=0;
+        String search = request.getParameter("search");
+        if(search.equals("")){
+            request.setAttribute("login_msg", "Please enter here!");
+            rd.forward(request, response);
+        }
+        
         String query = null;
-        selectedItem = Integer.parseInt(request.getParameter("topics"));
-        if(selectedItem>0){
-            query ="select books.book_id, topics.topic_name, books.book_name, authors.author_name, books.is_available \n" +
-                            "from library_catalog.books as books \n" +
-                            "join library_catalog.topics as topics on topics.topic_id = books.topic_id\n" +
-                            "join library_catalog.authors as authors on authors.author_id = books.author_id\n" +
-                            "where books.topic_id=" +selectedItem+" and books.is_available = 1";
-        }
-        else{
-            query = "select books.book_id, topics.topic_name, books.book_name, authors.author_name, books.is_available \n" +
-                            "from library_catalog.books as books \n" +
-                            "join library_catalog.topics as topics on topics.topic_id = books.topic_id\n" +
-                            "join library_catalog.authors as authors on authors.author_id = books.author_id\n" +
-                            "where books.is_available = 1";
-        }
+       
+        query = "SELECT * FROM FinalFour.`basketball matchs` where gteam1 LIKE '"+search+ "' or gteam2 LIKE '"+search+ "'";
+        
         try {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             Logger.getLogger(selectbook.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            out.append("<table class='w3-table w3-striped w3-border'><thread><tr><th>Book name</th><th>Topic</th><th>Author</th><th>Action</th></thead><tbody>");
+            out.append("<table class='w3-table w3-striped w3-border'><thread><tr><th>Team1</th><th>Team2</th><th>Date</th><th>Action</th></thead><tbody>");
             while(rs.next()){
                 out.append("<tr>");
                 out.append("<td>");
-                out.append(rs.getString("book_name"));
+                out.append(rs.getString("gteam1"));
                 out.append("</td>");
                 out.append("<td>");
-                out.append(rs.getString("topic_name"));
+                out.append(rs.getString("gteam1"));
                 out.append("</td>");
                 out.append("<td>");
-                out.append(rs.getString("author_name"));
+                out.append(rs.getString("date"));
                 out.append("</td>");
                 out.append("<td>");
-                out.append("<a href='reserve.jsp?book_id=");
-                out.append(rs.getString("book_id"));
-                out.append("'>Reserve a copy</a>");
+//                out.append("<a href='reserve.jsp?book_id=");
+//                out.append(rs.getString("book_id"));
+//                out.append("'>Reserve a copy</a>");
                 out.append("</tr>");
             }
             out.append("</tbody></table>");

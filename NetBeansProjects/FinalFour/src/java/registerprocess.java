@@ -74,7 +74,7 @@ public class registerprocess extends HttpServlet {
             rd.forward(request, response);
         }         
         if(password.equals(confirm_pwd)){
-                    String query = "SELECT username FROM users WHERE username = '"+username +"'";
+                    String query = "SELECT uname FROM users WHERE uname = '"+username +"'";
         try {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
@@ -86,7 +86,7 @@ public class registerprocess extends HttpServlet {
                 rd.forward(request, response);
             }
             else{
-                query = "INSERT INTO users (fname, lname, username, password) values ('"+firstname+"','"+lastname+"', '"+username+"','"+password+"')";
+                query = "INSERT INTO users (fname, lname, uname, password) values ('"+firstname+"','"+lastname+"', '"+username+"','"+password+"')";
                 
                 
                 st1.executeUpdate(query);
