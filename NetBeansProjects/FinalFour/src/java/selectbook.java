@@ -43,7 +43,7 @@ public class selectbook extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(registerprocess.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String search = request.getParameter("search");
+        String search = request.getParameter("match");
         if(search.equals("")){
             request.setAttribute("login_msg", "Please enter here!");
             rd.forward(request, response);
