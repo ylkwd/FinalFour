@@ -23,7 +23,7 @@
 
 <div  style="padding:20px 200px" class="w3-container w3-center w3-hover-shadow w3-card-6 w3-light-grey  w3-margin">
             
-        <h2 style="color: black">Search book</h2>
+        <h2 style="color: black">Search Matches</h2>
            <div class="w3-container w3-margin">
                  <form name ="selectbook" action="selectbook" method="GET" >
             
