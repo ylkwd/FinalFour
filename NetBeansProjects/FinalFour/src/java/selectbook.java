@@ -51,7 +51,15 @@ public class selectbook extends HttpServlet {
         
         String query = null;
        
-        query = "SELECT * FROM FinalFour.`basketball matchs` where gteam1 LIKE '"+search+ "' or gteam2 LIKE '"+search+ "'";
+        
+        if(search.equals("")){
+            query = "SELECT gid,gteam1, gteam2, date FROM FinalFour.`basketball matchs`";
+        }
+        else{
+            query = "SELECT gid,gteam1, gteam2, date FROM FinalFour.`basketball matchs` where gteam1 LIKE '"+search+ "' or gteam2 LIKE '"+search+ "'";
+        }
+        
+        
         
         try {
             rs = st.executeQuery(query);
@@ -66,15 +74,15 @@ public class selectbook extends HttpServlet {
                 out.append(rs.getString("gteam1"));
                 out.append("</td>");
                 out.append("<td>");
-                out.append(rs.getString("gteam1"));
+                out.append(rs.getString("gteam2"));
                 out.append("</td>");
                 out.append("<td>");
                 out.append(rs.getString("date"));
                 out.append("</td>");
                 out.append("<td>");
-//                out.append("<a href='reserve.jsp?book_id=");
-//                out.append(rs.getString("book_id"));
-//                out.append("'>Reserve a copy</a>");
+//                out.append("<a href='reserve.jsp?gid=");
+//                out.append(rs.getString("gid"));
+                out.append("'>Follow this game</a>");
                 out.append("</tr>");
             }
             out.append("</tbody></table>");
