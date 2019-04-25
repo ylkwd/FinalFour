@@ -86,7 +86,7 @@ public class registerprocess extends HttpServlet {
                 rd.forward(request, response);
             }
             else{
-                query = "INSERT INTO users (uname, fname, lname, password) values ('"+username+"','"+firstname+"', '"+lastname+"','"+password+"')";
+                query = "INSERT INTO users (fname, lname, uname, password) values ('"+firstname+"','"+lastname+"', '"+username+"','"+password+"')";
                 
                 
                 st1.executeUpdate(query);
