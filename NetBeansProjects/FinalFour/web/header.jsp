@@ -35,7 +35,7 @@
     <body>
         <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide w3-left"><img style="max-width: 50px;" src="ncaa.png"></img></a>
+    <a href="/FinalFour/Output.html" class="w3-bar-item w3-button w3-wide w3-left"><img style="max-width: 50px;" src="ncaa.png"></img></a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
         <%

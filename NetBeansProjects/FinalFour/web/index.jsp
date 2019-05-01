@@ -31,7 +31,7 @@
                 <option value ='0'>ALL</option>
                 
             </select>-->
-                   Search : <input class="w3-input"type="text" name="match"/>
+                  <input style="width: 100%"class="w3-input"type="text" name="match"/>
             <div class="w3-container w3-margin">
             <input  class="w3-button" style="background-color: #f68026;color: white"type="submit" value="search"/>
             <a class="w3-button" style="background-color: #f68026;color: white"href="index.jsp">Clear</a>

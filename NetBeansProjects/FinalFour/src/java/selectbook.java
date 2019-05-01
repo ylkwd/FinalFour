@@ -63,24 +63,30 @@ public class selectbook extends HttpServlet {
             Logger.getLogger(selectbook.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            out.append("<table class='w3-table w3-striped w3-border'><thread><tr><th>Team1</th><th>VS</th><th>Team2</th><th>Date</th><th>Action</th></thead><tbody>");
+            out.append("<table class='w3-table w3-striped w3-border'><thread><tr><th>Team1</th><th>VS</th><th>Team2</th><th>Date</th></thead><tbody>");
             while(rs.next()){
                 out.append("<tr>");
                 out.append("<td>");
                 out.append(rs.getString("gteam1"));
+                 out.append("<a href='Details.jsp?gteam=");
+                out.append(rs.getString("gteam1"));
+                out.append("'>--></a>");
                 out.append("</td>");
                 out.append("<td>");
                 out.append("</td>");
                 out.append("<td>");
                 out.append(rs.getString("gteam2"));
+                out.append("<a href='Details.jsp?gteam=");
+                out.append(rs.getString("gteam2"));
+                out.append("'>--></a>");
                 out.append("</td>");
                 out.append("<td>");
                 out.append(rs.getString("date"));
                 out.append("</td>");
-                out.append("<td>");
+//                out.append("<td>");
 //                out.append("<a href='reserve.jsp?gid=");
 //                out.append(rs.getString("gid"));
-                out.append("'>Follow this game</a>");
+//                out.append("'>Details</a>");
                 out.append("</tr>");
             }
             out.append("</tbody></table>");
